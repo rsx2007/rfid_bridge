@@ -22,15 +22,16 @@ void loop(void) {
       return;
   }
   
-  Serial.print("R=");
-  for( i = 0; i < 8; i++) {
-    Serial.print(addr[i], HEX);
-    Serial.print(" ");
-  }
-
-  if ( OneWire::crc8( addr, 7) != addr[7]) {
-      Serial.print("CRC is not valid!\n");
-      return;
+            Serial.print("R=");
+            for( i = 0; i < 8; i++) {
+              Serial.print(addr[i], HEX);
+              Serial.print(" ");
+            }
+          
+            if ( OneWire::crc8( addr, 7) != addr[7]) {
+                Serial.print("CRC is not valid!\n");
+                
+                return;
   }
   
   if ( addr[0] != 0x01) {
