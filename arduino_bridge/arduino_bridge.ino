@@ -1,12 +1,9 @@
 #include "config.h"
 
+#include <OneWire.h>
+#include <SoftwareSerial.h>
 
-#include <OneWire.h>
-#include <SoftwareSerial.h>
-#include <OneWire.h>
-#include <SoftwareSerial.h>
 SoftwareSerial RS485 (RS485_A_PIN, RS485_B_PIN); // RX, TX
-
 OneWire  ds(WIRE_RFID_PIN);
 
 
