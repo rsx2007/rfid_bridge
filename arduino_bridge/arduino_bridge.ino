@@ -1,21 +1,20 @@
-#include "config.h"
+#include "config.h"  // Connect params lib
 
-#include <OneWire.h>
-#include <SoftwareSerial.h>
+#include <OneWire.h>   // Connect Onewire lib
+#include <SoftwareSerial.h>   // Connect SoftSerial 
 
-SoftwareSerial RS485 (RS485_A_PIN, RS485_B_PIN); // RX, TX
-OneWire  ds(WIRE_RFID_PIN);
+SoftwareSerial RS485 (RS485_A_PIN, RS485_B_PIN); // RX, TX   INIT
+OneWire  ds(WIRE_RFID_PIN);   //  DEFINE RFID READE CLASS
 
 
 
 //-----------------------------------
 //        BASE VARIABLES
 //-----------------------------------
-unsigned long read_card_timer;
+unsigned long read_card_timer;  
 unsigned long card_hold_timer;
 unsigned long read_rf_timer;
 unsigned long reboot_timer;    // Reboot  MCU  every X  seconds
-
 
 unsigned in_rf_msg [4] =  {0xFF, 0xFF, 0xFF, 0xFF}; //  MESSAGE FROM RF MODULE    { INIT, ADR, CMD, CRC8 } {0x33, 0x09, 0x06, 0x55, 0xFF}
 bool in_rf_msg_crc_state = false; // true - if message crc is OK
@@ -33,10 +32,10 @@ unsigned char out_msg[9] = {0x23, 0x09, 0x06, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00
 //-----------------------------------
 //        BASE FUNC AND UTILITIES
 //-----------------------------------
-#include "utility.h"
-#include "logger.h"
-#include "dallas_func.h"
-#include "rf_func.h"
+#include "utility.h"  // connect utilities  funcs
+#include "logger.h"  // connect logger  funcs
+#include "dallas_func.h"  // connect RFID reader funcs
+#include "rf_func.h"  //  connect  RF-RS485  funcs
 
 
 
