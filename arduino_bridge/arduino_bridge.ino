@@ -76,9 +76,13 @@ void loop() {
   //got in_rf_msg_crc_state true/false
 
 
-    if(in_rf_request_state && dallas_cardstate){
-      sendMessage();
-    }
+  if(in_rf_request_state && dallas_cardstate){
+    sendMessage();
+  }
     
-
+  if (millis() - reboot_timer > REBOOT_DELAY) { // if reset delay passed
+    loger("Reset CPU");
+    resetFunc(); 
+    return;
+  }
 }

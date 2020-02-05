@@ -82,5 +82,4 @@ void sendMessage() { // sending  response message to device
     RS485.write(out_msg[i]);
   }
   disableRS();
-  delay(2000);
 }
