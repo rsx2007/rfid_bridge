@@ -1,11 +1,11 @@
 void(* resetFunc) (void) = 0;
 
 void enableRS() {
-  digitalWrite(RS485_DIRECTION_PIN, LOW);
+  digitalWrite(RS485_DIRECTION_PIN, HIGH);
 }
 
 void disableRS() {
-  digitalWrite(RS485_DIRECTION_PIN, HIGH);
+  digitalWrite(RS485_DIRECTION_PIN, LOW);
 }
 
 
