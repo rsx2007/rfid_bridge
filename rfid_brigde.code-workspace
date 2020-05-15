@@ -2,7 +2,7 @@
     "folders": [
 		{
 			"name": "RFID Bridge",
-			"path": "C:\\Users\\rsx20\\Documents\\PlatformIO\\Projects\\RFID Bridge"
+			"path": "D:\GIT\ARDUINO\rfid_bridge\arduino_bridge_hw_serial"
 		}
 	],
     "settings": {}

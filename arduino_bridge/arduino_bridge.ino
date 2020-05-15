@@ -48,10 +48,10 @@ void setup() {
   pinMode(RS485_DIRECTION_PIN,   OUTPUT);    // устанавливаем режим работы вывода PIN_direction_TX_RX, как "выход"
   digitalWrite(RS485_DIRECTION_PIN, HIGH);    // устанавливаем уровень логического «0» на выводе PIN_direction_TX_RX (переводим модуль в режим приёма данных)
 
-  // LED INIT 
+  // LED INIT
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, HIGH);
-  
+
   // INIT CLASSES
   loger("Init classes");
   RS485.begin(19200);
@@ -75,16 +75,18 @@ void loop() {
   //got  dallas_cardstate  true/false
   //got  cardId  id  or FF
   //got dallas_msg_crc_state true/false
-
-  readMessage();
+  if (dallas_cardstate) {
+    Serial.flush();
+    readMessage();
+  }
   //got  in_rf_request_state  true/false
   //got  in_rf_msg  msg  or FF
   //got in_rf_msg_crc_state true/false
 
-
-  if (in_rf_request_state && dallas_cardstate) {
+  if (in_rf_request_state) {
     sendMessage();
   }
+  
   if (REBOOT == 1) {
     if (millis() - reboot_timer > REBOOT_DELAY) { // if reset delay passed
       loger("Reset CPU");

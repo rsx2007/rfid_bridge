@@ -1,11 +1,26 @@
 void(* resetFunc) (void) = 0;
 
+void resetMCU(){
+  if (REBOOT == 1) {
+    if (millis() - reboot_timer > REBOOT_DELAY) { // if reset delay passed
+      resetFunc();
+      return;
+    }
+  }
+}
+
 void enableRS() {
+  delay(2);
+  Serial.flush();
   digitalWrite(RS485_DIRECTION_PIN, HIGH);
+  delay(2);
 }
 
 void disableRS() {
+  delay(2);
+  Serial.flush();
   digitalWrite(RS485_DIRECTION_PIN, LOW);
+  delay(2);
 }
 
 
