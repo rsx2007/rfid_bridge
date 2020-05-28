@@ -60,6 +60,10 @@ void readRF02() {
         cnt = 0;
         buff[0] = c;  // init,  put 0x33 to bufffer
         buff[1] = Serial.read(); // addr
+        if(buff[1] != DEV_ADDRESS){
+          Serial.flush();
+          return;
+        }
         buff[2] = Serial.read();   // cmd
         buff[3] = Serial.read();   // crc
         if (OneWire::crc8( buff, 3) == buff[3]) {  // check if crc valid

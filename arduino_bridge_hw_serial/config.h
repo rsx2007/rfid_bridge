@@ -1,3 +1,4 @@
+#define DEV_ADDRESS 0x09
 #define REBOOT 1
 #define RS485_DIRECTION_PIN 2 //  arduino pins 6
 #define WIRE_RFID_PIN 3
