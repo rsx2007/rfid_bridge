@@ -39,7 +39,7 @@ unsigned char out_msg[9] = {0x23, DEV_ADDRESS, 0x06, 0x00, 0x00, 0x00, 0x00, 0x0
 
 void setup() {
   // INIT  PINS
-  pinMode(RS485_DIRECTION_PIN,   OUTPUT);    // СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЂРµР¶РёРј СЂР°Р±РѕС‚С‹ РІС‹РІРѕРґР° PIN_direction_TX_RX, РєР°Рє "РІС‹С…РѕРґ"
+  pinMode(RS485_DIRECTION_PIN,   OUTPUT);    // set pin rs484  PIN_direction_TX_RX, as output
   disableRS();
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LED_LOW_LEVEL);
