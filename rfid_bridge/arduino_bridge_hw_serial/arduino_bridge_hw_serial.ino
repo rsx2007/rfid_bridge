@@ -3,7 +3,7 @@
 
 #include <OneWire.h>   // Connect Onewire lib
 
-OneWire  ds(WIRE_RFID_PIN);   //  DEFINE RFID READER CLASS
+OneWire  ds(WIRE_RFID_PIN);   //  DEFINE RFID READE CLASS
 
 
 
@@ -37,11 +37,10 @@ unsigned char out_msg[9] = {0x23, DEV_ADDRESS, 0x06, 0xFF, 0xFF, 0xFF, 0xFF, 0xF
 
 void setup() {
   // INIT  PINS
-  pinMode(RS485_DIRECTION_PIN,   OUTPUT);    // set RS485_DIRECTION_PIN as OUT
+  pinMode(RS485_DIRECTION_PIN,   OUTPUT);    // устанавливаем режим работы вывода PIN_direction_TX_RX, как "выход"
   disableRS();
   pinMode(LED_PIN, OUTPUT);
   digitalWrite(LED_PIN, LED_LOW_LEVEL);
-  
   // INIT CLASSES
   Serial.begin(19200);
 
@@ -57,8 +56,13 @@ void loop() {
 
   readCard();
   
-  readRF02();
 
+  readRF02();
+/*
+  if(in_rf_request_state){
+    sendRF02();
+  }
+*/
   resetMCU();
 
 }

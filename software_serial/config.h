@@ -1,4 +1,4 @@
-//#define  DEBUG   //  1 - on    0 - off
+#define  DEBUG 1 //  1 - on    0 - off
 #define DEBUG_LEVEL "debug"  //   info, warning, error, debug;
 #define REBOOT 0
 #define RS485_RX_PIN 1     // arduino pins 7 RX
