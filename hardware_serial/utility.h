@@ -13,14 +13,14 @@ void enableRS() {
   delay(2);
   Serial.flush();
   digitalWrite(RS485_DIRECTION_PIN, HIGH);
-  delay(2);
+  delay(5);
 }
 
 void disableRS() {
   delay(2);
   Serial.flush();
   digitalWrite(RS485_DIRECTION_PIN, LOW);
-  delay(2);
+  delay(5);
 }
 
 
